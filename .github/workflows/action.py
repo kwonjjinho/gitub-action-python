@@ -15,13 +15,13 @@ runs:
   using: 'composite'
   steps:
     -name: Insall Dependencies
-     run: pip install -r requrements.tx
+     run: pip install -r requrements.txt
      shell: bash
     -name: Pass Inpus to Shell
      run: |
        echo "INPUT_NUM=${{ inpus.num }}" >> $GITHUB_ENV
      shell: bash
-    -name: Fetch the number's squae
+    -name: Fetch the number's square
      id: get-square
      run: python src/get_num_square.py
      shell: bash
