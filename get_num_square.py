@@ -4,7 +4,7 @@ num = os.environ.get("INPUT_NUM")
 if num:
     try:
         num = int(num)
-    expect Exception:
+    except Exception:
         exit('ERROR: the INPUT-NUM provided ("{}")is npt ')
 else:
     num = 1
