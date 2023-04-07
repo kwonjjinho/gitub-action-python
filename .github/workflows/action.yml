@@ -8,7 +8,7 @@ inputs:
     default: "1"
 outputs:
   num_squared:
-    descripion: "square of the input"
+    descripion: "square of the just input"
     # need to specify the extra 'value' field for 'composite' actions
     value: ${{ steps.get.square.outpts.num_squared }}
 runs:
