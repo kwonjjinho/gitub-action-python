@@ -5,8 +5,8 @@ if num:
     try:
         num = int(num)
     except Exception:
-        exit('ERROR: the INPUT_NUM provided ("{}")is not an integer.format(num) ')
+        exit()
 else:
     num = 1
     
-print(f"::set-output name=num_squared::{num ** 2}")
+print(f"::set-output name=num_squared::{num **2}")
