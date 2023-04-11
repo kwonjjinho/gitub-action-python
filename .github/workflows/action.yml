@@ -1,31 +1,27 @@
-#action.yaml
-name: 'Custom GitHub Action'
-description: 'A GitHub Action that takes an inpt and returns the square of the number'
+name: 'Custom Github Action'
+description: 'takes number and return the squared number'
 inputs:
-  num:
-    description: 'Enter in a several number'
+  num: 
     required: true
     default: "1"
 outputs:
   num_squared:
-    descripion: "square of the just input"
-    # need to specify the extra 'value' field for 'composite' actions
-    value: ${{ steps.get.square.outpts.num_squared }}
+    value: ${{ steps.get-square.outputs.num_squared }}
 runs:
   using: 'composite'
   steps:
-    -name: Install Python
-     uses: actions/setup-python@v4
-     with:
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
         python-version: '3.10'
-    -name: Insall Dependencies
-     run: pip install -r requirements.txt
-     shell: bash
-    -name: Pass Inpus to Shell
-     run: |
-       echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
-     shell: bash
-    -name: Fetch the number's square
-     id: get-square
-     run: python src/get_num_square.py
-     shell: bash
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: Pass inputs to shell
+      run: |
+        echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
+      shell: bash
+    - name: fetch the number' square
+      id: get-square
+      run: python src/get_num_square.py
+      shell: bash
